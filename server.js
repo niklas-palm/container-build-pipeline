@@ -5,11 +5,16 @@ const express = require("express");
 // Constants
 const PORT = 8080;
 const HOST = "0.0.0.0";
+const PODNAME = process.env.HOSTNAME;
 
 // App
 const app = express();
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send(`Hello World! I'm running on pod {PODNAME}`);
+});
+
+app.get("/healthcheck", (req, res) => {
+  res.send(`{PODNAME}, reporting for duty`);
 });
 
 app.listen(PORT, HOST, () => {
