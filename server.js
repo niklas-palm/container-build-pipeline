@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/healthcheck", (req, res) => {
-  res.send(`{PODNAME}, reporting for duty`);
+  res.send(`${PODNAME}, reporting for duty`);
 });
 
 app.listen(PORT, HOST, () => {
